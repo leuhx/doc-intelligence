@@ -3,7 +3,8 @@ ADR 01 - Leopoldo - DOC Intelligence
 -visualizando o problema abordado no documento, tive a ideia inicial de fazer uma API utilizando o framework NestJS e 
 banco de dados postgres pois já sou familiar com as tecnologias
 
--com a ajuda de IA consegui consolidar a ideia de uma arquitetura mais robusta e pronta para evolução.
+-com a ajuda de IA consegui consolidar a ideia de uma arquitetura mais robusta. as entidadesforam pensadas para que o sistema seja escalável e de fácil manutenção, além de permitir a evolução 
+com a adição de novas funcionalidades e entidades.
 
 prompt usado
 ‘estou criando um projeto em nestjs onde tenho minha entidade documento, onde preciso ler de uma imagem ou pdf e 
