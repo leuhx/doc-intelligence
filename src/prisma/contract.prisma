@@ -1,21 +1,64 @@
 // use prisma-next
-
-model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  username  String?
-  name      String?
-  posts     Post[]
-  createdAt TimestamptzString @default(now())
-  updatedAt temporal.updatedAtString()
+enum DocumentStatus {
+  PENDING
+  PROCESSING
+  PROCESSED
+  FAILED
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  title     String
-  content   String?
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
-  createdAt TimestamptzString @default(now())
-  updatedAt temporal.updatedAtString()
+enum AttributeDataType {
+  STRING
+  NUMBER
+  DATE
+  BOOLEAN
+}
+
+model DocumentType {
+  id          String              @id @default(uuid())
+  name        String
+  description String?
+  documents   Document[]
+  attributes  DocumentAttribute[]
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  @@map("document_types")
+}
+
+model DocumentAttribute {
+  id          String             @id @default(uuid())
+  documentTypeId String
+  documentType   DocumentType    @relation(
+    fields: [documentTypeId],
+    references: [id]
+  )
+  key         String
+  label       String
+  dataType    AttributeDataType
+  required    Boolean            @default(false)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  @@unique([documentTypeId, key])
+  @@map("document_attributes")
+}
+
+model Document {
+  id            String         @id @default(uuid())
+  documentTypeId String?
+  documentType   DocumentType? @relation(
+    fields: [documentTypeId],
+    references: [id]
+  )
+  fileName      String
+  fileUrl       String
+  mimeType      String
+  status        DocumentStatus  @default(PENDING)
+  extractedData Json?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  @@index([documentTypeId])
+  @@index([status])
+  @@map("documents")
 }
