@@ -1,0 +1,34 @@
+┌─────────────────┐
+│  DocumentType   │
+├─────────────────┤
+│ id              │
+│ name            │
+│ description     │
+└────────┬────────┘
+         │
+         │ 1:N
+         ▼
+┌─────────────────┐
+│DocumentAttribute│
+├─────────────────┤
+│ id              │
+│ documentTypeId  │
+│ key             │
+│ label           │
+│ description     │
+│ dataType        │
+│ required        │
+└─────────────────┘
+
+
+┌─────────────────┐
+│    Document     │
+├─────────────────┤
+│ id              │
+│ documentTypeId  │
+│ fileName        │
+│ fileUrl         │
+│ mimeType        │
+│ status          │
+│ extractedData   │
+└─────────────────┘
