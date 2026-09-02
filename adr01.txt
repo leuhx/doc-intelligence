@@ -1,0 +1,14 @@
+ADR 01 - Leopoldo - DOC Intelligence
+
+-visualizando o problema abordado no documento, tive a ideia inicial de fazer uma API utilizando o framework NestJS e 
+banco de dados postgres pois já sou familiar com as tecnologias
+
+-com a ajuda de IA consegui consolidar a ideia de uma arquitetura mais robusta e pronta para evolução.
+
+prompt usado
+‘estou criando um projeto em nestjs onde tenho minha entidade documento, onde preciso ler de uma imagem ou pdf e 
+extrair alguns atributos da mesma, mas esse documento pode ser de diversos tipo como identidade, comprovante de 
+residência, contracheques, laudos e etc. qual seria a melhor maneira de estruturar o banco de dados e as entidades‘
+
+
+-depois disso fui abstraindo algumas entidades e funcionalidades avançadas do projeto até conseguir algo tangível para entrega.

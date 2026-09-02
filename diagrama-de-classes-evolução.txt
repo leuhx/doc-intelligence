@@ -1,0 +1,33 @@
+   ┌─────────────────┐
+                       │ DocumentType    │
+                       └────────┬────────┘
+                                │
+                                ▼
+                       ┌─────────────────┐
+                       │ DocumentAttr.   │
+                       └─────────────────┘
+
+
+┌──────────────┐
+│   Document   │
+├──────────────┤
+│ id           │
+│ type         │
+│ status       │
+└──────┬───────┘
+       │
+       ├──────────────────┐
+       │                  │
+       ▼                  ▼
+┌──────────────┐   ┌────────────────────┐
+│ DocumentFile │   │ DocumentProcessing │
+├──────────────┤   ├────────────────────┤
+│ storageKey   │   │ type               │
+│ mimeType     │   │ provider           │
+│ size         │   │ model              │
+└──────────────┘   │ input JSON         │
+                   │ output JSON        │
+                   │ confidence         │
+                   │ status             │
+                   │ error              │
+                   └────────────────────┘

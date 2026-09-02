@@ -1,0 +1,24 @@
+              POST /documents
+                     │
+                     ▼
+             DocumentController
+                     │
+                     ▼
+              DocumentService
+                     │
+          ┌──────────┴──────────┐
+          ▼                     ▼
+       Salvar                  AI/OCR
+       arquivo                   │
+          │                      ▼
+          │               identificar tipo
+          │                      │
+          │                      ▼
+          │               extrair dados
+          │                      │
+          └──────────┬───────────┘
+                     ▼
+                  Document
+                     │
+                     ▼
+               extractedData
